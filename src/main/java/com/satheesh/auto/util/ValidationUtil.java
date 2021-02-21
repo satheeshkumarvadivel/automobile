@@ -11,13 +11,14 @@ public class ValidationUtil {
 		if (invoice == null)
 			throw new ValidationException("Invoice cannot be null");
 
-		if (invoice.getCustomerName() == null || invoice.getCustomerName().trim().length() == 0)
+		if (invoice.getCustomer() == null || invoice.getCustomer().getCustomerName() == null
+				|| invoice.getCustomer().getCustomerName().trim().length() == 0)
 			throw new ValidationException("Please provide customer name");
 
-		if (invoice.getCustomerName().trim().length() > 150)
+		if (invoice.getCustomer().getCustomerName().trim().length() > 150)
 			throw new ValidationException("Customer name cannot be longer than 150 characters");
 
-		if (containsInvalidCharacters(invoice.getCustomerName()))
+		if (containsInvalidCharacters(invoice.getCustomer().getCustomerName()))
 			throw new ValidationException("Customer name contains invalid characters");
 
 		if (invoice.getNextOilService() != null && invoice.getNextOilService().trim().length() > 0) {
@@ -48,26 +49,18 @@ public class ValidationUtil {
 				throw new ValidationException("Product name cannot be longer than 250 characters");
 			if (containsInvalidCharacters(product.getProductName().trim()))
 				throw new ValidationException("Product name contains invalid characters");
-			if (product.getPrice() != null && product.getPrice().trim().length() > 0) {
-				if (!isFloat(product.getPrice()))
-					throw new ValidationException("Invalid Product Price provided");
-			} else {
-				product.setPrice("0");
-			}
+			if (product.getQuantity() <= 0)
+				product.setQuantity(1);
 		}
 
-		if (invoice.getTotal() != null && invoice.getTotal().trim().length() > 0) {
-			if (!isFloat(invoice.getTotal()))
-				throw new ValidationException("Invalid total value provided");
-		} else {
-			invoice.setTotal("0");
-		}
+		if (invoice.getTotal() < 0)
+			throw new ValidationException("Invalid total value provided");
 
 		return true;
 	}
 
 	public static boolean containsInvalidCharacters(String str) {
-		return (str.contains("<") || str.contains("$") || str.contains("'") || str.contains("\"") || str.contains("&")
+		return (str.contains("<") || str.contains("$") || str.contains("'") || str.contains("\"") 
 				|| str.contains("%"));
 	}
 

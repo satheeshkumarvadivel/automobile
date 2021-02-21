@@ -15,13 +15,13 @@
 <body>
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">SSVM</a>
-      
+
       <ul class="right hide-on-med-and-down">
         <li><a href="/login">Logout</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Invoice</a></li>
-      </ul>      
+      </ul>
       <ul class="right hide-on-med-and-down">
         <li><a href="/billing">Billing</a></li>
       </ul>
@@ -40,64 +40,72 @@
       <p><b>All Car Mechanical, Electrical, Tinkering, Painting, AC Work, Wheel Alignment</b></p>
       <p>Arasamarathukattur, Opp. Balamurugan Tirumana Mandapam, <br /> Seelanaickenpatti Bye Pass, SALEM-636 202</p>
     </div>
-    <div class="row" style="margin-bottom: 0px;">
-      <div class="col s12 m12">
-        <section class="col s12 m6"><b>Bill No: 404</b></section>
-        <section class="col s12 m6" style="text-align: right;"><b>Date: 23/01/2021</b></section>
-      </div>
-    </div>
-    <div class="row" style="margin-bottom: 0px;">
-      <div class="col s12 m12">
-        <h6>
-          <b>Customer Name : </b>Satheeshkumar
-        </h6>
-        <h6>
-          <b>Next Oil Service : </b>01/05/2021
-        </h6>
-        <h6>
-          <b>Vehicle No : </b>TN30 CP 2255
-        </h6>
-      </div>
-    </div>
-    <div class="row" style="margin-bottom: 0px;">
-      <div class="col s12 m12">
-        <table class="striped">
-          <thead>
-            <tr class="row">
-              <th class="col m1">S.No.</th>
-              <th class="col m7">Particulars</th>
-              <th class="col m2">Amount</th>
-            </tr>
-          </thead>
 
-          <tbody id="productTable">
-            <tr class="row">
-              <td class="col m1">1</td>
-              <td class="col m7">Engine Oil Service</td>
-              <td class="col m2">1200</td>
-            </tr>
-            <tr class="row">
-              <td class="col m1">2</td>
-              <td class="col m7">Headlight repair</td>
-              <td class="col m2">250</td>
-            </tr>
-            <tr class="row">
-              <td class="col m1">3</td>
-              <td class="col m7">Complete water wash</td>
-              <td class="col m2">150</td>
-            </tr>
-            <tr class="row" id="totalRow">
-              <td class="col m1"></td>
-              <td class="col m7" style="text-align: right;"><b>TOTAL :</b></td>
-              <td class="col m2"><b id="total_amount">1600</b></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="row">
-          <h6>Remarks: </h6>
+    <div id="invoices_table">
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>Invoice No</th>
+            <th>Invoice Date</th>
+            <th>Customer Name</th>
+            <th>Vehicle Number</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="invoice_table_body">
+
+        </tbody>
+      </table>
+      <ul class="pagination" id="invoice_table_pagination">
+
+      </ul>
+    </div>
+
+    <div id="viewInvoice" style="display: none;">
+      <div class="row" style="margin-bottom: 0px;">
+        <div class="col s12 m12">
+          <section class="col s12 m6" style="padding: 0px;"><b id="invoice_bill_no">Bill No: 404</b></section>
+          <section class="col s12 m6" style="text-align: right; padding: 0px;"><b id="invoice_date">Date: 23/01/2021</b>
+          </section>
         </div>
-        <div class="row">
-          <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" id="print_button">Print</a>
+      </div>
+      <div class="row" style="margin-bottom: 0px;">
+        <div class="col s12 m12">
+          <h6 id="invoice_customer_name">
+
+          </h6>
+          <h6 id="invoice_next_oil_service">
+
+          </h6>
+          <h6 id="invoice_vehicle_number">
+
+          </h6>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 0px;">
+        <div class="col s12 m12">
+          <table class="striped">
+            <thead>
+              <tr class="row">
+                <th class="col m1">S.No.</th>
+                <th class="col m7">Particulars</th>
+                <th class="col m2">Amount</th>
+              </tr>
+            </thead>
+
+            <tbody id="invoiceProductTableBody">
+              
+            </tbody>
+          </table>
+          <div class="row">
+            <h6 id="invoice_remarks"></h6>
+          </div>
+          <div class="row">
+            <a class="waves-effect waves-light btn blue right" style="margin-right: 20px;" href="/invoice">Back</a>
+            <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" id="print_button">Print</a>
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +115,7 @@
   <script src="js/materialize.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/common.js"></script>
+  <script src="js/invoice.js"></script>
 
 </body>
 

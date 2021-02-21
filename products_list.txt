@@ -1,0 +1,198 @@
+Engine remove and refitting work
+Engine overheating work
+Gear box remove and refitting work
+Gear box overheating work
+Oil service labour
+Coolant oil changing
+Sub frame remove and fitting work
+Power steering box RGR
+Lower arm changing labour
+Front sturt assembling changing labour
+Rear sturt assembling changing labour
+All wheel brake cleaning labour
+Front brake pad changing labour
+Rear brake lining changing labour
+Engine pad changing labour
+Gear box pad changing labour
+Fuel tank remove and fitting
+Front steering knukel remove and fitting
+Oil sum remove and fitting work
+Wheel bearing changing leath work
+Brake drum facing leath work
+Brake disc facing leath work
+Fly wheel facing leath work
+ABS motor remove and fitting
+Brake boost assembling changing
+Brake master cylinder changing
+Clutch master cylinder changing
+Wheel cylinder changing work
+Dashboard remove and fitting work
+Head light bulb changing
+Tail lamp bulb changing
+Tail lamp assembling changing
+Head light assembling changing
+Drive shaft changing
+Radiater remove and fitting work
+A/C condencer changing work
+Oil coolar changing work
+Gear rod cable changing work
+Front bumper remove and fitting work
+Rear bumper remove and fitting work
+Bonnet tinkering work
+Door tinkering work
+Quarter panel tinkering work
+Running board tinkering work
+Front glass changing
+Door winding machine changing
+Tharbow remove and fitting work
+Power steering pump remove and fitting work
+Power steering pump service work
+Steering box service work
+Head remove and refitting work
+Timing belt changing work
+Water pump changing work
+Suspension bush changing (Leath)
+Hand brake cable changing
+Mat flat changing
+Wheel cylinder changing
+Front suspension remove and fitting
+Rear suspension remove and fitting
+A/C compressor remove and fitting
+A/C gas filling work
+Door lock changing
+Timing chain kit changing
+Oil pump changing
+Gas kit service
+Carburator service
+Alternator remove and fitting
+Alternator service work
+Self motor remove and fitting
+Self motor service
+Radiator service
+
+Engine oil
+Gear box oil
+Crown oil
+Coolant oil
+Steering box oil
+Brake oil
+Oil filter
+Fuel filter
+Air filter
+Radiator fan
+Radiator
+Lower arm
+Sturt assembly
+Ling rod
+End ball joint
+Rec end ball joint
+Oil cooler
+Injector
+Injector bush washer
+Piston
+Piston rings
+Cannict rod bearing
+Main bearing
+Thurst washer
+Head gasket
+Spark plug
+Heater plug
+Wheel bearing (front wheel)
+Brake pad
+Rear brake lining set
+Wheel bearing (rear wheel)
+ACC belt
+ACC belt tensnar
+ACC belt Idler
+Timing belt
+Timing belt tensnar bearing
+Timing belt Idler bearing
+Coolant tank
+Clutch plate kit
+Clutch reclisar bearing
+Grease
+Oil seal
+Drive Shaft
+Alternator
+A/C compressor
+Head light bulb
+Brake light bulb
+Fog lamp bulb
+Indicator bulb
+Reverse light bulb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

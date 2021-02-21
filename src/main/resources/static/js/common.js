@@ -2,6 +2,7 @@
   $(function () {
 
     $(document).ready(function () {
+      sessionStorage.setItem('api_host', 'http://localhost:8001');
       if (sessionStorage.getItem('username') == null || sessionStorage.getItem('username') != 'satheesh') {
         window.location.href = "/login";
       }

@@ -1,38 +1,39 @@
 package com.satheesh.auto.rest;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.satheesh.auto.exceptions.ValidationException;
-import com.satheesh.auto.model.Invoice;
-import com.satheesh.auto.model.SimpleResponse;
-import com.satheesh.auto.model.SimpleSuccessResponse;
-import com.satheesh.auto.util.ValidationUtil;
+import com.satheesh.auto.dao.ProductDao;
+import com.satheesh.auto.model.Product;
 
+@RestController
 public class ProductResource {
 
 	private Logger logger = LogManager.getLogger(this.getClass());
 
-	@PostMapping("invoice")
-	public ResponseEntity<?> createProduct(@RequestBody Invoice invoice) {
-		try {
-			logger.info(invoice.toString());
-			ValidationUtil.isValidInvoice(invoice);
-			
-			
+	@Autowired
+	ProductDao productDao;
 
-			return new ResponseEntity<>(new SimpleSuccessResponse("Invoice created successfully."), HttpStatus.CREATED);
-		} catch (ValidationException valEx) {
-			logger.debug(valEx.getMessage());
-			return new ResponseEntity<>(new SimpleResponse(400, valEx.getMessage()), HttpStatus.BAD_REQUEST);
+	@GetMapping("products")
+	public ResponseEntity<?> getProducts(@RequestParam(value = "productName", required = false) String productName,
+			@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(value = "size", required = false, defaultValue = "10") int size) {
+		try {
+			logger.info("Fetching products from database...");
+			List<Product> products = productDao.getProducts(productName, page, size);
+			ResponseEntity<List<Product>> response = new ResponseEntity<>(products, HttpStatus.OK);
+			return response;
 		} catch (Exception e) {
-			logger.error("Exception occurred while saving invoice : ", e);
-			return new ResponseEntity<>(new SimpleResponse(500, "ERROR: Unable to create Invoice."),
-					HttpStatus.INTERNAL_SERVER_ERROR);
+			logger.error("Exception occurred while getting product : ", e);
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

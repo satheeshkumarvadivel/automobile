@@ -8,7 +8,7 @@ public class WebController {
 
 	@GetMapping("/")
 	public String getIndex() {
-		return "index.html";
+		return "login.html";
 	}
 
 	@GetMapping("/login")
