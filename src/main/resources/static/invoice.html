@@ -20,7 +20,7 @@
         <li><a href="/login">Logout</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Invoice</a></li>
+        <li><a href="/invoice">Invoice</a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a href="/billing">Billing</a></li>
@@ -64,14 +64,14 @@
     </div>
 
     <div id="viewInvoice" style="display: none;">
-      <div class="row" style="margin-bottom: 0px;">
+      <div id="dateRow" class="row" style="margin-bottom: 0px;">
         <div class="col s12 m12">
           <section class="col s12 m6" style="padding: 0px;"><b id="invoice_bill_no">Bill No: 404</b></section>
           <section class="col s12 m6" style="text-align: right; padding: 0px;"><b id="invoice_date">Date: 23/01/2021</b>
           </section>
         </div>
       </div>
-      <div class="row" style="margin-bottom: 0px;">
+      <div id="numberRow" class="row" style="margin-bottom: 0px;">
         <div class="col s12 m12">
           <h6 id="invoice_customer_name">
 
@@ -84,7 +84,7 @@
           </h6>
         </div>
       </div>
-      <div class="row" style="margin-bottom: 0px;">
+      <div id="tableRow" class="row" style="margin-bottom: 0px;">
         <div class="col s12 m12">
           <table class="striped">
             <thead>
@@ -96,17 +96,17 @@
             </thead>
 
             <tbody id="invoiceProductTableBody">
-              
+
             </tbody>
           </table>
           <div class="row">
             <h6 id="invoice_remarks"></h6>
           </div>
-          <div class="row">
-            <a class="waves-effect waves-light btn blue right" style="margin-right: 20px;" href="/invoice">Back</a>
-            <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" id="print_button">Print</a>
-          </div>
         </div>
+      </div>
+      <div class="row">
+        <a class="waves-effect waves-light btn blue right" style="margin-right: 20px;" href="/invoice">Back</a>
+        <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" href="/print" target="_blank">Print</a>
       </div>
     </div>
   </div>

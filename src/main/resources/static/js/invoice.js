@@ -24,7 +24,7 @@
           renderPagination(result);
         },
         error: function (result) {
-          $('#invoice_table_body').html('<tr><td colspan="5" style="text-align: center !important; color: red;">Unable to load data</td></tr>')
+          $('#invoice_table_body').html('<tr><td colspan="6" style="text-align: center !important; color: red;">Unable to load data</td></tr>')
         }
       });
     }
@@ -59,6 +59,7 @@
           'Content-Type': 'application/json'
         },
         success: function (result) {
+          sessionStorage.setItem('current_invoice', JSON.stringify(result));
           showInvoice(result);
         },
         error: function (result) {
@@ -72,7 +73,7 @@
       $('#viewInvoice').show();
 
       $('#invoice_bill_no').html("Bill No: " + invoice.invoiceNumber);
-      $('#invoice_date').html("Date: " + invoice.invoiceDate);
+      $('#invoice_date').html("Date: " + formatDate(invoice.invoiceDate));
       $('#invoice_customer_name').html('<b>Customer Name : </b>' + invoice.customer.customerName);
       $('#invoice_next_oil_service').html('<b>Next Oil Service : </b>' + invoice.nextOilService);
       $('#invoice_customer_name').html('<b>Vehicle No : </b>' + invoice.vehicleNumber);
@@ -86,6 +87,11 @@
       $('#invoiceProductTableBody').html(rowHtml);
       $('#invoice_remarks').html("Remarks: " + invoice.remarks);
 
+    }
+
+    function formatDate(oldDate) {
+      let dateArray = oldDate.split('-');
+      return dateArray[2] + '/' + dateArray[1] + '/' + dateArray[0];
     }
 
     function renderPagination(invoices) {

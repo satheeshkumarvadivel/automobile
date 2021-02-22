@@ -25,5 +25,10 @@ public class WebController {
 	public String getInvoice() {
 		return "invoice.html";
 	}
+	
+	@GetMapping("/print")
+	public String getPrint() {
+		return "print.html";
+	}
 
 }
