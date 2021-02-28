@@ -45,11 +45,11 @@ public class InvoiceDao {
 				+ "inv.total as invoice_total from invoice inv join invoice_customer cust on inv.id = cust.invoice_id ";
 
 		if (search == null || search.trim().length() <= 0) {
-			sql += " ORDER BY inv.invoice_date DESC LIMIT ? OFFSET ?";
+			sql += " WHERE inv.invoice_date  >=  current_timestamp - interval '60 day' ORDER BY inv.invoice_date DESC LIMIT ? OFFSET ?";
 			results = jdbc.queryForList(sql, limit, offset);
 		} else {
-			sql += " WHERE lower(cust.customerName) like %?% ORDER BY invoice_date DESC LIMIT ? OFFSET ?";
-			results = jdbc.queryForList(sql, search.trim().toLowerCase(), limit, offset);
+			sql += " WHERE lower(cust.customer_name) like ? ORDER BY invoice_date DESC LIMIT ? OFFSET ?";
+			results = jdbc.queryForList(sql, "%" + search.trim().toLowerCase() + "%", limit, offset);
 		}
 
 		logger.info("Query : " + sql);
@@ -80,7 +80,7 @@ public class InvoiceDao {
 			}
 		}
 
-		String countSql = "SELECT COUNT(*) FROM invoice";
+		String countSql = "SELECT COUNT(*) FROM invoice WHERE invoice_date  >=  current_timestamp - interval '60 day'";
 
 		int count = jdbc.queryForObject(countSql, Integer.class);
 

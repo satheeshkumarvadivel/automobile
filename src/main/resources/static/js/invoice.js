@@ -5,12 +5,25 @@
 
       loadInvoices(1, 10);
 
+      $('#customerNameSearchButton').click(function () {
+        loadInvoices(1, 10, $('#customerNameSearch').val());
+      });
+
+      $('#clearSearchButton').click(function () {
+        $('#customerNameSearch').val('');
+        loadInvoices(1, 10);
+      });
+
     });
 
-    function loadInvoices(page, size) {
+    function loadInvoices(page, size, search) {
       $('viewInvoice').hide();
       $('#invoices_table').show();
       let invoiceUrl = sessionStorage.getItem('api_host') + "/invoices?page=" + page + "&size=" + size;
+
+      if (search) {
+        invoiceUrl += "&search=" + search;
+      }
       $.ajax({
         url: invoiceUrl,
         method: 'GET',
@@ -76,7 +89,7 @@
       $('#invoice_date').html("Date: " + formatDate(invoice.invoiceDate));
       $('#invoice_customer_name').html('<b>Customer Name : </b>' + invoice.customer.customerName);
       $('#invoice_next_oil_service').html('<b>Next Oil Service : </b>' + invoice.nextOilService);
-      $('#invoice_customer_name').html('<b>Vehicle No : </b>' + invoice.vehicleNumber);
+      $('#invoice_vehicle_number').html('<b>Vehicle No : </b>' + invoice.vehicleNumber);
 
       var rowHtml = "";
       for (let i = 0; i < invoice.products.length; i++) {
@@ -95,7 +108,7 @@
     }
 
     function renderPagination(invoices) {
-      var paginationHtml = '<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>';
+      var paginationHtml = '<li class="disabled"><a href="#!">&lt</a></li>';
       for (let i = 0; i < invoices.totalPages; i++) {
         let page = (i + 1);
         if (page == invoices.page) {
@@ -104,7 +117,7 @@
           paginationHtml += '<li class="waves-effect"><a class="pageButton" page="' + page + '">' + page + '</a></li>';
         }
       }
-      paginationHtml += '<li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>';
+      paginationHtml += '<li class="disabled"><a href="#!">&gt</a></li>';
       $('#invoice_table_pagination').html(paginationHtml);
 
       $('#invoice_table_pagination .pageButton').click(function (e) {

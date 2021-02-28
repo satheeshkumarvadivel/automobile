@@ -7,7 +7,6 @@
   <title>Sri Selva Vinayaga Motors</title>
 
   <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
@@ -33,15 +32,28 @@
     </div>
   </nav>
 
-
   <div class="container">
     <div class="row center" style="margin-bottom: 0px;">
-      <h4 style="color: #ff9800;">SRI SELVA VINAYAGA MOTORS</h4>
+      <h4 style="color: #ff9800;">SSV MOTORS</h4>
       <p><b>All Car Mechanical, Electrical, Tinkering, Painting, AC Work, Wheel Alignment</b></p>
-      <p>Arasamarathukattur, Opp. Balamurugan Tirumana Mandapam, <br /> Seelanaickenpatti Bye Pass, SALEM-636 202</p>
+      <p>3/740-2, Arasamarathukarattur, Opposite to SM Cars<br /> Ammani Kondalampatti, SALEM-636 010 <br /> Ph:
+        9952779711, 9994049461</p>
     </div>
-
     <div id="invoices_table">
+      <div class="row" style="margin-bottom: 0px;">
+        <div class="input-field inline col m6">
+          <input id="customerNameSearch" type="text">
+          <label for="customerNameSearch">Customer Name</label>
+        </div>
+        <div class="col m1">
+          <a class="waves-effect waves-light btn blue" style="margin-left: 10px; margin-top: 25px;"
+            id="customerNameSearchButton">Search</a>
+        </div>
+        <div class="col m1">
+          <a class="waves-effect waves-light btn blue" style="margin-left: 10px; margin-top: 25px;"
+            id="clearSearchButton">Clear</a>
+        </div>
+      </div>
       <table class="highlight">
         <thead>
           <tr>
@@ -66,8 +78,8 @@
     <div id="viewInvoice" style="display: none;">
       <div id="dateRow" class="row" style="margin-bottom: 0px;">
         <div class="col s12 m12">
-          <section class="col s12 m6" style="padding: 0px;"><b id="invoice_bill_no">Bill No: 404</b></section>
-          <section class="col s12 m6" style="text-align: right; padding: 0px;"><b id="invoice_date">Date: 23/01/2021</b>
+          <section class="col s12 m6" style="padding: 0px;"><b id="invoice_bill_no"></b></section>
+          <section class="col s12 m6" style="text-align: right; padding: 0px;"><b id="invoice_date"></b>
           </section>
         </div>
       </div>
@@ -106,12 +118,13 @@
       </div>
       <div class="row">
         <a class="waves-effect waves-light btn blue right" style="margin-right: 20px;" href="/invoice">Back</a>
-        <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" href="/print" target="_blank">Print</a>
+        <a class="waves-effect waves-light btn green right" style="margin-right: 20px;" href="/print"
+          target="_blank">Print</a>
       </div>
     </div>
   </div>
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/libs/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/common.js"></script>

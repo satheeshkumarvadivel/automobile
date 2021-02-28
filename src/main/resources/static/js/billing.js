@@ -52,10 +52,8 @@
       </div>
       </td>
       <td class="col m2" style="padding-top: 30px;">
-      <a id="addProductBtn" class="btn-floating btn-small waves-effect waves-light blue small"><i
-        class="material-icons">add</i></a>
-      <a id="removeProductBtn" class="btn-floating btn-small waves-effect waves-light red small"><i
-        class="material-icons">remove</i></a>
+      <a id="addProductBtn" class="btn-floating btn-small waves-effect waves-light blue small">+</a>
+      <a id="removeProductBtn" class="btn-floating btn-small waves-effect waves-light red small">-</a>
       </td>
     </tr>`;
 
@@ -134,11 +132,15 @@
         'Content-Type': 'application/json'
       },
       success: function (result) {
-        alert("Invoice created.");
-        location.reload();
+        M.toast({ html: 'Invoice created successfully!', classes: 'green', completeCallback: function() {location.reload();} });       
       },
       error: function (result) {
-        alert("Error");
+        console.log(JSON.stringify(result));
+        try {
+          M.toast({ html: 'Error: ' + result.responseJSON.message, classes: 'red' });
+        } catch (error) {
+          M.toast({ html: 'Error: Unable to create Invoice.', classes: 'red' });
+        }
       }
     });
 

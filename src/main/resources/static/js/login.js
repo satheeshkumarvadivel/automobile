@@ -6,11 +6,11 @@
       sessionStorage.setItem('username', null);
 
       $('#login_button').click(function () {
-        if ($('#username').val() == 'satheesh' && $('#password').val() == 'satheesh') {
-          sessionStorage.setItem('username', 'satheesh');
-          window.location.href = "/billing"
+        if ($('#username').val() == 'ssvmotors' && $('#password').val() == 'tn30ae5515') {
+          sessionStorage.setItem('username', 'ssvmotors');
+          window.location.href = "/billing";
         } else {
-          alert("Invalid username or password");
+          M.toast({ html: 'Invalid Username or Password!', classes: 'red'});
         }
       });
 
