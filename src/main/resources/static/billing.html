@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>Sri Selva Vinayaga Motors</title>
+  <title>Mediquips Pvt Ltd.</title>
 
   <!-- CSS  -->
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">SSVM</a>
+  <nav class="pink" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">MEDIQUIPS</a>
 
       <ul class="right hide-on-med-and-down">
         <li><a href="/login">Logout</a></li>
@@ -35,10 +35,9 @@
 
   <div class="container">
     <div class="row center" style="margin-bottom: 0px;">
-      <h4 style="color: #ff9800;">SSV MOTORS</h4>
-      <p><b>All Car Mechanical, Electrical, Tinkering, Painting, AC Work, Wheel Alignment</b></p>
-      <p>3/740-2, Arasamarathukarattur, Opposite to SM Cars<br /> Ammani Kondalampatti, SALEM-636 010 <br /> Ph:
-        9952779711, 9994049461</p>
+      <h4 style="color: black;">Mediquips</h4>
+      <p><b>All Medical equipments wholesale sales and service</b></p>
+      <p>I/513-1, VOC Nagar, Backside Jeya Theater<br />Omalur, SALEM-636 010 <br /> Ph: 9912345678</p>
     </div>
     <div class="row" style="margin-bottom: 0px;">
       <div class="col s12 m12">
@@ -57,12 +56,12 @@
 
           <div class="input-field inline col m6" style="margin-bottom: 0px;">
             <input id="next_oil_service" type="text">
-            <label for="next_oil_service">Next Oil Service: </label>
+            <label for="next_oil_service">Address: </label>
           </div>
 
           <div class="input-field inline col m6" style="margin-bottom: 0px;">
             <input id="vehicle_no" type="text">
-            <label for="vehicle_no">Vechicle No: </label>
+            <label for="vehicle_no">Phone No: </label>
           </div>
         </form>
       </div>
@@ -73,28 +72,45 @@
           <thead>
             <tr class="row">
               <th class="col m1">S.No.</th>
-              <th class="col m7">Particulars</th>
-              <th class="col m2">Amount</th>
-              <th class="col m2">Action</th>
+              <th class="col m6">Particulars</th>
+              <th class="col m1">Price</th>
+              <th class="col m1">GST</th>
+              <th class="col m1">Quantity</th>
+              <th class="col m1">Total</th>
+              <th class="col m1">Action</th>
             </tr>
           </thead>
 
           <tbody id="productTable">
             <tr class="row" id="productline_1">
               <td class="col m1" style="padding: 30px;" id="product_sno_1">1</td>
-              <td class="col m7">
+              <td class="col m6">
                 <div class="input-field">
                   <input type="text" id="product_1" class="autocomplete">
                   <label for="product_1">Product</label>
                 </div>
               </td>
-              <td class="col m2">
+              <td class="col m1">
                 <div class="input-field col">
                   <input id="price_1" class="price" type="text">
-                  <label for="price">Price </label>
                 </div>
               </td>
-              <td class="col m2" style="padding-top: 30px;">
+              <td class="col m1">
+                <div class="input-field col">
+                  <input id="gst_1" class="gst" type="text" value="12">
+                </div>
+              </td>
+              <td class="col m1">
+                <div class="input-field col">
+                  <input id="quantity_1" class="quantity" type="text" value="1">
+                </div>
+              </td>
+              <td class="col m1">
+                <div class="input-field col">
+                  <input id="total_1" class="total" type="text">
+                </div>
+              </td>
+              <td class="col m1" style="padding-top: 30px;">
                 <a id="addProductBtn" class="btn-floating btn-small waves-effect waves-light blue small">
                   +
                 </a>
@@ -105,9 +121,9 @@
             </tr>
             <tr class="row" id="totalRow">
               <td class="col m1"></td>
-              <td class="col m7" style="text-align: right;"><b>TOTAL :</b></td>
-              <td class="col m2" style="margin-left: 11.25px;"><b id="total_amount">0.0</b></td>
-              <td class="col m2"></td>
+              <td class="col m9" style="text-align: right;"><b>TOTAL :</b></td>
+              <td class="col m1" style="margin-left: 5px;"><b id="total_amount">0.0</b></td>
+              <td class="col m1"></td>
             </tr>
           </tbody>
         </table>

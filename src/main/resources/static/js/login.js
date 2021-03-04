@@ -6,8 +6,8 @@
       sessionStorage.setItem('username', null);
 
       $('#login_button').click(function () {
-        if ($('#username').val() == 'ssvmotors' && $('#password').val() == 'tn30ae5515') {
-          sessionStorage.setItem('username', 'ssvmotors');
+        if ($('#username').val() == 'admin' && $('#password').val() == 'admin') {
+          sessionStorage.setItem('username', 'admin');
           window.location.href = "/billing";
         } else {
           M.toast({ html: 'Invalid Username or Password!', classes: 'red'});
