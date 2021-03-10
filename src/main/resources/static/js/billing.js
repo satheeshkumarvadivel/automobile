@@ -156,14 +156,15 @@
     invoice.total = $('#total_amount').html();
     console.log(JSON.stringify(invoice));
 
-    let invoiceUrl = sessionStorage.getItem('api_host') + "/invoices"
+    let invoiceUrl = sessionStorage.getItem('api_host') + "/rest/invoices"
     $.ajax({
       url: invoiceUrl,
       method: 'POST',
       data: JSON.stringify(invoice),
       async: false,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + sessionStorage.getItem('creds')
       },
       success: function (result) {
         M.toast({ html: 'Invoice created successfully!', classes: 'green', completeCallback: function () { location.reload(); } });

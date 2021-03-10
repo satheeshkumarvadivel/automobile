@@ -3,15 +3,28 @@
 
     $(document).ready(function () {
 
-      sessionStorage.setItem('username', null);
+      sessionStorage.setItem('creds', null);
 
       $('#login_button').click(function () {
-        if ($('#username').val() == 'admin' && $('#password').val() == 'admin') {
-          sessionStorage.setItem('username', 'admin');
-          window.location.href = "/billing";
-        } else {
-          M.toast({ html: 'Invalid Username or Password!', classes: 'red'});
-        }
+
+        sessionStorage.setItem('creds', btoa($('#username').val() + ':' + $('#password').val()));
+        let loginUrl = sessionStorage.getItem('api_host') + "/rest/token"
+
+        $.ajax({
+          url: loginUrl,
+          method: 'GET',
+          async: false,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + sessionStorage.getItem('creds')
+          },
+          success: function (result) {
+            window.location.href = "/billing";
+          },
+          error: function (result) {
+            M.toast({ html: 'Invalid Username or Password!', classes: 'red' });
+          }
+        });
       });
 
 
