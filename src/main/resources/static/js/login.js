@@ -3,6 +3,7 @@
 
     $(document).ready(function () {
 
+      sessionStorage.setItem('api_host', 'http://65.0.149.38');
       sessionStorage.setItem('creds', null);
 
       $('#login_button').click(function () {
