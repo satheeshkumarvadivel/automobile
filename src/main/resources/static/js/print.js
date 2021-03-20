@@ -2,7 +2,7 @@
   $(function () {
     $(document).ready(function () {
 
-      let invoice = JSON.parse(sessionStorage.getItem('current_invoice'));
+      let invoice = JSON.parse(localStorage.getItem('current_invoice'));
 
       renderInvoicePrintPage(invoice);
 

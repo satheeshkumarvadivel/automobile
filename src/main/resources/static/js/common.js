@@ -2,8 +2,8 @@
   $(function () {
 
     $(document).ready(function () {
-      sessionStorage.setItem('api_host', 'http://65.0.149.38');
-      if (sessionStorage.getItem('username') == null || sessionStorage.getItem('username') != 'ssvmotors') {
+      localStorage.setItem('api_host', 'http://localhost:8080');
+      if (localStorage.getItem('username') == null || localStorage.getItem('username') != 'ssvmotors') {
         window.location.href = "/login";
       }
     });

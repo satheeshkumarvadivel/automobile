@@ -19,7 +19,7 @@
     function loadInvoices(page, size, search) {
       $('viewInvoice').hide();
       $('#invoices_table').show();
-      let invoiceUrl = sessionStorage.getItem('api_host') + "/invoices?page=" + page + "&size=" + size;
+      let invoiceUrl = localStorage.getItem('api_host') + "/invoices?page=" + page + "&size=" + size;
 
       if (search) {
         invoiceUrl += "&search=" + search;
@@ -32,7 +32,7 @@
           'Content-Type': 'application/json'
         },
         success: function (result) {
-          sessionStorage.setItem('invoices', result);
+          localStorage.setItem('invoices', result);
           showInvoicesTable(result.data);
           renderPagination(result);
         },
@@ -63,7 +63,7 @@
     }
 
     function fetchInvoiceById(invoiceId) {
-      let invoiceUrl = sessionStorage.getItem('api_host') + "/invoices/" + invoiceId;
+      let invoiceUrl = localStorage.getItem('api_host') + "/invoices/" + invoiceId;
       $.ajax({
         url: invoiceUrl,
         method: 'GET',
@@ -72,7 +72,7 @@
           'Content-Type': 'application/json'
         },
         success: function (result) {
-          sessionStorage.setItem('current_invoice', JSON.stringify(result));
+          localStorage.setItem('current_invoice', JSON.stringify(result));
           showInvoice(result);
         },
         error: function (result) {

@@ -1,6 +1,6 @@
 (function ($) {
   $(function () {
-    sessionStorage.setItem('productRowCount', 1);
+    localStorage.setItem('productRowCount', 1);
     initProductAutoComplete(1);
     showTodaysDate();
 
@@ -33,9 +33,9 @@
   }
 
   function appendNewProductRow(e) {
-    let count = parseInt(sessionStorage.getItem('productRowCount'));
-    sessionStorage.setItem('productRowCount', count + 1);
-    let productRowCount = parseInt(sessionStorage.getItem('productRowCount'));
+    let count = parseInt(localStorage.getItem('productRowCount'));
+    localStorage.setItem('productRowCount', count + 1);
+    let productRowCount = parseInt(localStorage.getItem('productRowCount'));
     let productRow = `
     <tr class="row" id="productline_` + productRowCount + `">
       <td class="col m1" style="padding: 30px;" id="product_sno_` + productRowCount + `">` + productRowCount + `</td>
@@ -77,7 +77,7 @@
   }
 
   function redrawSerialNumber() {
-    let productRowCount = parseInt(sessionStorage.getItem('productRowCount'));
+    let productRowCount = parseInt(localStorage.getItem('productRowCount'));
     let count = 0;
     let price = 0;
     for (var i = 1; i <= productRowCount; i++) {
@@ -89,7 +89,7 @@
 
       }
     }
-    sessionStorage.setItem('productRowCount', count);
+    localStorage.setItem('productRowCount', count);
     updateTotalPrice();
   }
 
@@ -104,7 +104,7 @@
   }
 
   function saveBill() {
-    let productCount = parseInt(sessionStorage.getItem('productRowCount'));
+    let productCount = parseInt(localStorage.getItem('productRowCount'));
     let invoice = {};
     let customer = {};
     customer.customerName = $('#customer_name').val();
@@ -122,7 +122,7 @@
     invoice.total = $('#total_amount').html();
     console.log(JSON.stringify(invoice));
 
-    let invoiceUrl = sessionStorage.getItem('api_host') + "/invoices"
+    let invoiceUrl = localStorage.getItem('api_host') + "/invoices"
     $.ajax({
       url: invoiceUrl,
       method: 'POST',
